@@ -22,13 +22,13 @@ const html = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manoj Arora - Personal Profile & Verified Documents</title>
-  <meta name="description" content="Verified Personal Profile, KYC Documents (PAN, Aadhaar, Bank), Contact Numbers and Location for Manoj Arora (Area Sales Manager, Sun Pharma)." />
+  <title>Manoj Arora - Personal Profile & Pending Dues Record</title>
+  <meta name="description" content="Verified Personal Profile, KYC Documents (PAN, Aadhaar, Bank), Pending Payment Dues and Location for Manoj Arora (Area Sales Manager, Sun Pharma)." />
   
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
 ${cssContent}
@@ -49,6 +49,10 @@ ${printCss}
       </div>
 
       <div class="header-actions">
+        <span class="badge badge-rose" id="header-dues-badge" style="font-size: 0.82rem; padding: 6px 12px;">
+          ⚠️ Pending Amount: <strong id="header-dues-val" style="margin-left: 4px;">₹1,50,000</strong>
+        </span>
+
         <a href="tel:+917508304834" class="btn btn-success" title="Direct Phone Call">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span>Call: 7508304834</span>
@@ -73,6 +77,39 @@ ${printCss}
   </header>
 
   <main class="container">
+
+    <!-- PENDING PAYMENT & DUES HIGH-VISIBILITY CARD -->
+    <section class="pending-dues-section">
+      <div class="pending-dues-card" id="pending-dues-card">
+        
+        <div class="dues-info-left">
+          <div class="dues-alert-icon">⚠️</div>
+          <div class="dues-texts-group">
+            <h3>Pending Payment Due to Manoj Arora <span class="badge badge-rose" id="dues-status-pill">Pending Payment</span></h3>
+            <p id="dues-desc-text">Outstanding payment balance to be cleared for Manoj Arora. Bank settlement details attached below.</p>
+          </div>
+        </div>
+
+        <div class="dues-amount-center">
+          <span class="dues-label-small">Total Pending Amount to Pay</span>
+          <div class="dues-big-amount" id="display-dues-amount">₹1,50,000</div>
+          <span class="text-secondary" style="font-size: 0.78rem;" id="display-dues-words">(One Lakh Fifty Thousand Rupees Only)</span>
+        </div>
+
+        <div class="dues-actions-right">
+          <button class="btn btn-danger" onclick="window.openEditDuesModal()">
+            ✏️ Change / Set Amount
+          </button>
+          <button class="btn btn-white" onclick="window.copyText(document.getElementById('display-dues-amount').innerText, 'Pending Dues Amount')">
+            📋 Copy Amount
+          </button>
+          <button class="btn btn-white" onclick="window.copyBankSettlement()">
+            🏦 Copy Bank A/C
+          </button>
+        </div>
+
+      </div>
+    </section>
 
     <!-- 1. HERO SECTION: Big Photo of Manoj + Side-by-Side Details -->
     <section class="hero-section">
@@ -517,6 +554,32 @@ ${printCss}
     </div>
   </footer>
 
+  <!-- Edit Pending Dues Modal -->
+  <div id="dues-edit-modal" class="modal-overlay" onclick="if(event.target === this) window.closeEditDuesModal()">
+    <div class="modal-dialog-sm">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="font-size: 1.2rem; font-weight: 800;">Update Pending Dues Amount</h3>
+        <button class="btn btn-sm btn-white" onclick="window.closeEditDuesModal()">✕</button>
+      </div>
+      <p class="text-secondary" style="font-size: 0.88rem;">Enter the exact amount of money that is pending for Manoj Arora:</p>
+      
+      <div>
+        <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; display: block;">Pending Amount (in ₹ INR)</label>
+        <input type="text" id="dues-amount-input" class="form-control-lg" placeholder="e.g. ₹1,50,000" />
+      </div>
+
+      <div>
+        <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; display: block;">Note / Purpose (Optional)</label>
+        <input type="text" id="dues-note-input" class="form-control-lg" placeholder="e.g. Proposal Balance / Premium / Settlement" />
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px;">
+        <button class="btn btn-white" onclick="window.closeEditDuesModal()">Cancel</button>
+        <button class="btn btn-danger" onclick="window.saveDuesAmount()">Save Amount</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Interactive Lightbox Modal -->
   <div id="image-viewer-modal" class="modal-overlay" onclick="if(event.target === this) window.closeViewer()">
     <div class="modal-content-box">
@@ -554,6 +617,54 @@ ${printCss}
   <script src="js/data.js"></script>
   <script src="js/embedded_images.js"></script>
   <script>
+    // Pending Dues State Management
+    const DUES_KEY = "MANOJ_PENDING_DUES_AMOUNT_V1";
+    const DUES_NOTE_KEY = "MANOJ_PENDING_DUES_NOTE_V1";
+
+    function loadDues() {
+      const savedAmount = localStorage.getItem(DUES_KEY) || "₹1,50,000";
+      const savedNote = localStorage.getItem(DUES_NOTE_KEY) || "Outstanding payment balance to be cleared for Manoj Arora. Bank settlement details attached below.";
+      
+      document.getElementById('display-dues-amount').innerText = savedAmount;
+      document.getElementById('header-dues-val').innerText = savedAmount;
+      document.getElementById('dues-desc-text').innerText = savedNote;
+    }
+
+    window.openEditDuesModal = function() {
+      const cur = document.getElementById('display-dues-amount').innerText;
+      const note = document.getElementById('dues-desc-text').innerText;
+      document.getElementById('dues-amount-input').value = cur;
+      document.getElementById('dues-note-input').value = note;
+      document.getElementById('dues-edit-modal').classList.add('active');
+    };
+
+    window.closeEditDuesModal = function() {
+      document.getElementById('dues-edit-modal').classList.remove('active');
+    };
+
+    window.saveDuesAmount = function() {
+      let val = document.getElementById('dues-amount-input').value.trim();
+      let note = document.getElementById('dues-note-input').value.trim();
+      if (!val) val = "₹0";
+      if (!val.startsWith("₹") && !isNaN(val.replace(/,/g, ''))) {
+        val = "₹" + Number(val.replace(/,/g, '')).toLocaleString('en-IN');
+      }
+      localStorage.setItem(DUES_KEY, val);
+      if (note) localStorage.setItem(DUES_NOTE_KEY, note);
+      
+      document.getElementById('display-dues-amount').innerText = val;
+      document.getElementById('header-dues-val').innerText = val;
+      if (note) document.getElementById('dues-desc-text').innerText = note;
+
+      window.closeEditDuesModal();
+      window.showToast("Pending dues amount updated: " + val);
+    };
+
+    window.copyBankSettlement = function() {
+      const bankDetails = "BANK SETTLEMENT DETAILS FOR MANOJ ARORA:\\nBank: UCO Bank\\nBranch: Sector 17 B, Bank Square, Chandigarh\\nA/C No: 02360110051771\\nIFSC Code: UCBA0000236\\nAccount Holder: MANOJ ARORA";
+      window.copyText(bankDetails, "Bank Account Details");
+    };
+
     // Copy Helper
     window.copyText = function(text, label = "Item") {
       if (!text) return;
@@ -583,6 +694,7 @@ ${printCss}
 
     // Copy All Profile
     window.copyAllDetails = function() {
+      const dues = document.getElementById('display-dues-amount').innerText;
       const p = window.MANOJ_PROFILE || {
         personal: { fullName: 'Manoj Arora', hindiName: 'मनोज अरोड़ा', dob: '02.01.1979', age: '47 Years', gender: 'Male', fatherName: 'Ajit Singh Arora', motherName: 'Sunita Arora', placeOfBirth: 'Chandigarh', identificationMark: 'Mole on left feet', education: 'D Pharma', height: "5'9\\"", weight: '73 kg' },
         contact: { mobile1Formatted: '+91 75083 04834', mobile1: '7508304834', mobile2Formatted: '+91 98031 06100', mobile2: '9803106100', mobile3Formatted: '+91 62842 02226', mobile3: '6284202226', email: 'arora.manoj80@gmail.com' },
@@ -591,8 +703,10 @@ ${printCss}
         kyc: { panNumber: 'APVPA5577L', aadhaarNumber: '9183 9303 9252', bankName: 'UCO Bank', branch: 'Sector 17 B - Chandigarh', accountNumber: '02360110051771', ifscCode: 'UCBA0000236' }
       };
 
-      const allText = \`MANOJ ARORA - PERSONAL PROFILE & VERIFIED DETAILS
+      const allText = \`MANOJ ARORA - PERSONAL PROFILE & PENDING DUES
 ===========================================
+PENDING PAYMENT TO PAY: \${dues}
+-------------------------------------------
 Full Name: \${p.personal.fullName} (\${p.personal.hindiName})
 DOB: \${p.personal.dob} (Age: \${p.personal.age})
 Gender: \${p.personal.gender}
@@ -618,14 +732,14 @@ Designation: \${p.employment.designation}
 Gross Income: \${p.employment.grossAnnualIncome} (\${p.employment.grossAnnualIncomeNumeric})
 Company Address: \${p.employment.officeAddress}
 
-VERIFIED KYC:
+VERIFIED KYC & SETTLEMENT BANK:
 - PAN Card: \${p.kyc.panNumber}
 - Aadhaar Card: \${p.kyc.aadhaarNumber}
-- Bank: \${p.kyc.bankName} (\${p.kyc.branch})
+- Settlement Bank: \${p.kyc.bankName} (\${p.kyc.branch})
 - Account No: \${p.kyc.accountNumber} | IFSC: \${p.kyc.ifscCode}
 ===========================================\`;
 
-      window.copyText(allText, "All Manoj Arora Details");
+      window.copyText(allText, "All Manoj Arora Details with Pending Dues");
     };
 
     // Viewer Logic
@@ -688,11 +802,16 @@ VERIFIED KYC:
 
     // Keyboard support
     window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") window.closeViewer();
+      if (e.key === "Escape") {
+        window.closeViewer();
+        window.closeEditDuesModal();
+      }
     });
+
+    document.addEventListener("DOMContentLoaded", loadDues);
   </script>
 </body>
 </html>`;
 
 fs.writeFileSync('index.html', html, 'utf8');
-console.log('Self-contained index.html generated successfully');
+console.log('Self-contained index.html with Pending Dues generated successfully');
