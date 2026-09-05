@@ -22,19 +22,23 @@ const html = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manoj Arora - Personalised Website For You</title>
-  <meta name="description" content="Personalised website for you • Verified Profile, KYC Documents & Details for Manoj Arora." />
   
-  <!-- Open Graph Meta Tags (For WhatsApp, Telegram, Facebook Link Previews) -->
+  <!-- Primary Meta Tags -->
+  <title>Personalised website for you manoj</title>
+  <meta name="title" content="Personalised website for you manoj" />
+  <meta name="description" content="Personalised website for you manoj • Official Profile & Verified Details" />
+  
+  <!-- Open Graph / Facebook / WhatsApp / Telegram Meta Tags -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Manoj Arora - Personalised Website For You" />
-  <meta property="og:description" content="Personalised website for you • Verified Profile, KYC Documents & Details for Manoj Arora." />
+  <meta property="og:site_name" content="Personalised website for you manoj" />
+  <meta property="og:title" content="Personalised website for you manoj" />
+  <meta property="og:description" content="Personalised website for you manoj • Official Profile & Verified Details" />
   <meta property="og:image" content="https://raw.githubusercontent.com/keshavgandhi871/manoj-catch/main/assets/manoj_arora_portrait_opt.jpg" />
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Manoj Arora - Personalised Website For You" />
-  <meta name="twitter:description" content="Personalised website for you • Verified Profile, KYC Documents & Details for Manoj Arora." />
+  <meta name="twitter:title" content="Personalised website for you manoj" />
+  <meta name="twitter:description" content="Personalised website for you manoj • Official Profile & Verified Details" />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/keshavgandhi871/manoj-catch/main/assets/manoj_arora_portrait_opt.jpg" />
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
@@ -797,7 +801,7 @@ ${printCss}
         kyc: { panNumber: 'APVPA5577L', aadhaarNumber: '9183 9303 9252', bankName: 'UCO Bank', branch: 'Sector 17 B - Chandigarh', accountNumber: '02360110051771', ifscCode: 'UCBA0000236' }
       };
 
-      const allText = \`MANOJ ARORA - PERSONALISED WEBSITE FOR YOU
+      const allText = \`MANOJ ARORA - PERSONALISED WEBSITE FOR YOU MANOJ
 ===========================================
 TOTAL PENDING MONEY MANOJ HAS TO PAY: \${dues}
 BREAKDOWN:
@@ -912,4 +916,4 @@ VERIFIED KYC & SETTLEMENT BANK:
 </html>`;
 
 fs.writeFileSync('index.html', html, 'utf8');
-console.log('Self-contained index.html with Personalised Website for You metadata generated successfully');
+console.log('Self-contained index.html with Personalised website for you manoj generated successfully');
