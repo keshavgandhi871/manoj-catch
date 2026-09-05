@@ -1,0 +1,228 @@
+/* ==========================================================================
+   Print Stylesheet - Crisp A4 Life Insurance Proposal Form
+   ========================================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  body::before, body::after,
+  .app-navbar,
+  .tabs-navigation-bar,
+  .hero-action-buttons,
+  .btn,
+  .btn-copy-mini,
+  .btn-copy-small,
+  .viewer-modal-backdrop,
+  .modal-backdrop,
+  .toast-container,
+  #panel-dossier,
+  #panel-vault,
+  #panel-copy,
+  #panel-edit {
+    display: none !important;
+  }
+
+  .app-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .client-hero-card {
+    display: none !important;
+  }
+
+  #panel-print {
+    display: block !important;
+  }
+
+  .print-proposal-page {
+    width: 100% !important;
+    padding: 20px !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  .print-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+
+  .print-title-area h2 {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+
+  .print-title-area p {
+    font-size: 10pt;
+    color: #475569;
+  }
+
+  .print-meta-box {
+    text-align: right;
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+
+  .print-section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    background: #f1f5f9;
+    padding: 6px 10px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    border-left: 4px solid #0284c7;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .print-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    font-size: 9.5pt;
+  }
+
+  .print-table th, .print-table td {
+    border: 1px solid #cbd5e1;
+    padding: 6px 8px;
+    text-align: left;
+  }
+
+  .print-table th {
+    background-color: #f8fafc;
+    color: #334155;
+    font-weight: 600;
+  }
+
+  .print-signatures {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    page-break-inside: avoid;
+  }
+
+  .sig-box {
+    width: 40%;
+    text-align: center;
+  }
+
+  .sig-line {
+    border-top: 1px solid #000000;
+    margin-bottom: 8px;
+    height: 35px;
+  }
+
+  .sig-box p {
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+}
+
+/* Screen styles for the Print tab preview */
+.print-proposal-page {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-sm);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.print-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--accent-primary);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.print-title-area h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.print-title-area p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.print-meta-box {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.print-section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: var(--bg-surface);
+  padding: 8px 14px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--accent-primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.print-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+}
+
+.print-table th, .print-table td {
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.print-table th {
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.print-table td {
+  color: var(--text-primary);
+}
+
+.print-signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+}
+
+.sig-box {
+  width: 35%;
+  text-align: center;
+}
+
+.sig-line {
+  border-top: 1px dashed var(--border-color);
+  margin-bottom: 12px;
+  height: 40px;
+}
+
+.sig-box p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
