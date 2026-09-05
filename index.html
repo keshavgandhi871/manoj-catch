@@ -1498,70 +1498,6 @@ body {
 
   <main class="container">
 
-    <!-- PENDING PAYMENT & DUES HIGH-VISIBILITY CARD -->
-    <section class="pending-dues-section">
-      <div class="pending-dues-card" id="pending-dues-card">
-        
-        <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
-          
-          <div class="dues-info-left">
-            <div class="dues-alert-icon">⚠️</div>
-            <div class="dues-texts-group">
-              <h3>Pending Payment Manoj Arora Has to Pay <span class="badge badge-rose" id="dues-status-pill">Payment Overdue</span></h3>
-              <p id="dues-desc-text">Total pending money of <strong>₹10,000</strong> to be paid by Manoj Arora immediately.</p>
-            </div>
-          </div>
-
-          <div class="dues-amount-center">
-            <span class="dues-label-small">Total Pending Amount to Pay</span>
-            <div class="dues-big-amount" id="display-dues-amount">₹10,000</div>
-            <span class="text-secondary" style="font-size: 0.78rem;" id="display-dues-words">(Ten Thousand Rupees Only)</span>
-          </div>
-
-        </div>
-
-        <!-- Breakdown Section -->
-        <div class="dues-breakdown-box">
-          <div class="breakdown-title">
-            <span>📋 Specific Breakdown of Pending Dues:</span>
-          </div>
-          <div class="breakdown-list">
-            <div class="breakdown-item">
-              <span class="reason">1. Penalty for not paying money on time (Delayed Payment Charge):</span>
-              <span class="amt">₹5,000</span>
-            </div>
-            <div class="breakdown-item">
-              <span class="reason">2. Compensation for mental harassment and time waste:</span>
-              <span class="amt">₹5,000</span>
-            </div>
-            <div class="breakdown-item" style="border-top: 2px solid #ef4444; padding-top: 8px; margin-top: 4px;">
-              <span class="reason" style="font-size: 0.95rem; font-weight: 800; color: #b91c1c;">Total Amount Manoj Must Pay:</span>
-              <span class="amt" style="font-size: 1.1rem;">₹10,000/-</span>
-            </div>
-          </div>
-        </div>
-
-        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 14px;">
-          <span style="font-size: 0.85rem; color: var(--text-secondary);">
-            🏦 Settlement Bank: <strong>UCO Bank (A/C: 02360110051771, IFSC: UCBA0000236)</strong>
-          </span>
-
-          <div class="dues-actions-right">
-            <button class="btn btn-danger" onclick="window.openEditDuesModal()">
-              ✏️ Edit / Adjust Dues
-            </button>
-            <button class="btn btn-white" onclick="window.copyText('₹10,000 (Rs 5,000 for non-payment on time + Rs 5,000 for mental harassment & time waste)', 'Pending Dues Breakdown')">
-              📋 Copy Breakdown
-            </button>
-            <button class="btn btn-white" onclick="window.copyBankSettlement()">
-              🏦 Copy Bank A/C
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
     <!-- 1. HERO SECTION: Big Photo of Manoj + Side-by-Side Details -->
     <section class="hero-section">
       <div class="hero-grid">
@@ -1698,6 +1634,70 @@ body {
             </div>
           </div>
 
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PENDING PAYMENT & DUES HIGH-VISIBILITY CARD (Positioned under Manoj image & details, above verified KYC documents) -->
+    <section class="pending-dues-section">
+      <div class="pending-dues-card" id="pending-dues-card">
+        
+        <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+          
+          <div class="dues-info-left">
+            <div class="dues-alert-icon">⚠️</div>
+            <div class="dues-texts-group">
+              <h3>Pending Payment Manoj Arora Has to Pay <span class="badge badge-rose" id="dues-status-pill">Payment Overdue</span></h3>
+              <p id="dues-desc-text">Total pending money of <strong>₹10,000</strong> to be paid by Manoj Arora immediately.</p>
+            </div>
+          </div>
+
+          <div class="dues-amount-center">
+            <span class="dues-label-small">Total Pending Amount to Pay</span>
+            <div class="dues-big-amount" id="display-dues-amount">₹10,000</div>
+            <span class="text-secondary" style="font-size: 0.78rem;" id="display-dues-words">(Ten Thousand Rupees Only)</span>
+          </div>
+
+        </div>
+
+        <!-- Breakdown Section -->
+        <div class="dues-breakdown-box">
+          <div class="breakdown-title">
+            <span>📋 Specific Breakdown of Pending Dues:</span>
+          </div>
+          <div class="breakdown-list">
+            <div class="breakdown-item">
+              <span class="reason">1. Penalty for not paying money on time (Delayed Payment Charge):</span>
+              <span class="amt">₹5,000</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="reason">2. Compensation for mental harassment and time waste:</span>
+              <span class="amt">₹5,000</span>
+            </div>
+            <div class="breakdown-item" style="border-top: 2px solid #ef4444; padding-top: 8px; margin-top: 4px;">
+              <span class="reason" style="font-size: 0.95rem; font-weight: 800; color: #b91c1c;">Total Amount Manoj Must Pay:</span>
+              <span class="amt" style="font-size: 1.1rem;">₹10,000/-</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 14px;">
+          <span style="font-size: 0.85rem; color: var(--text-secondary);">
+            🏦 Settlement Bank: <strong>UCO Bank (A/C: 02360110051771, IFSC: UCBA0000236)</strong>
+          </span>
+
+          <div class="dues-actions-right">
+            <button class="btn btn-danger" onclick="window.openEditDuesModal()">
+              ✏️ Edit / Adjust Dues
+            </button>
+            <button class="btn btn-white" onclick="window.copyText('₹10,000 (Rs 5,000 for non-payment on time + Rs 5,000 for mental harassment & time waste)', 'Pending Dues Breakdown')">
+              📋 Copy Breakdown
+            </button>
+            <button class="btn btn-white" onclick="window.copyBankSettlement()">
+              🏦 Copy Bank A/C
+            </button>
+          </div>
         </div>
 
       </div>
