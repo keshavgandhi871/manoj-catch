@@ -22,8 +22,8 @@ const html = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manoj Arora - Personal Profile & Pending Dues Record</title>
-  <meta name="description" content="Verified Personal Profile, KYC Documents (PAN, Aadhaar, Bank), Pending Payment Dues and Location for Manoj Arora (Area Sales Manager, Sun Pharma)." />
+  <title>Manoj Arora - Pending Dues & Penalty Record</title>
+  <meta name="description" content="Verified Personal Profile, KYC Documents (PAN, Aadhaar, Bank), Pending Payment Dues (Rs 10,000) for Manoj Arora." />
   
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,6 +33,57 @@ const html = `<!DOCTYPE html>
   <style>
 ${cssContent}
 ${printCss}
+
+.dues-breakdown-box {
+  background: #ffffff;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.breakdown-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-rose);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  padding: 4px 0;
+  border-bottom: 1px dashed #fee2e2;
+}
+
+.breakdown-item:last-child {
+  border-bottom: none;
+}
+
+.breakdown-item .reason {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.breakdown-item .amt {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: #b91c1c;
+}
   </style>
 </head>
 <body>
@@ -50,7 +101,7 @@ ${printCss}
 
       <div class="header-actions">
         <span class="badge badge-rose" id="header-dues-badge" style="font-size: 0.82rem; padding: 6px 12px;">
-          ⚠️ Pending Amount: <strong id="header-dues-val" style="margin-left: 4px;">₹1,50,000</strong>
+          ⚠️ Total Due: <strong id="header-dues-val" style="margin-left: 4px;">₹10,000</strong>
         </span>
 
         <a href="tel:+917508304834" class="btn btn-success" title="Direct Phone Call">
@@ -82,30 +133,61 @@ ${printCss}
     <section class="pending-dues-section">
       <div class="pending-dues-card" id="pending-dues-card">
         
-        <div class="dues-info-left">
-          <div class="dues-alert-icon">⚠️</div>
-          <div class="dues-texts-group">
-            <h3>Pending Payment Due to Manoj Arora <span class="badge badge-rose" id="dues-status-pill">Pending Payment</span></h3>
-            <p id="dues-desc-text">Outstanding payment balance to be cleared for Manoj Arora. Bank settlement details attached below.</p>
+        <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+          
+          <div class="dues-info-left">
+            <div class="dues-alert-icon">⚠️</div>
+            <div class="dues-texts-group">
+              <h3>Pending Payment Manoj Arora Has to Pay <span class="badge badge-rose" id="dues-status-pill">Payment Overdue</span></h3>
+              <p id="dues-desc-text">Total pending money of <strong>₹10,000</strong> to be paid by Manoj Arora immediately.</p>
+            </div>
+          </div>
+
+          <div class="dues-amount-center">
+            <span class="dues-label-small">Total Pending Amount to Pay</span>
+            <div class="dues-big-amount" id="display-dues-amount">₹10,000</div>
+            <span class="text-secondary" style="font-size: 0.78rem;" id="display-dues-words">(Ten Thousand Rupees Only)</span>
+          </div>
+
+        </div>
+
+        <!-- Breakdown Section -->
+        <div class="dues-breakdown-box">
+          <div class="breakdown-title">
+            <span>📋 Specific Breakdown of Pending Dues:</span>
+          </div>
+          <div class="breakdown-list">
+            <div class="breakdown-item">
+              <span class="reason">1. Penalty for not paying money on time (Delayed Payment Charge):</span>
+              <span class="amt">₹5,000</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="reason">2. Compensation for mental harassment and time waste:</span>
+              <span class="amt">₹5,000</span>
+            </div>
+            <div class="breakdown-item" style="border-top: 2px solid #ef4444; padding-top: 8px; margin-top: 4px;">
+              <span class="reason" style="font-size: 0.95rem; font-weight: 800; color: #b91c1c;">Total Amount Manoj Must Pay:</span>
+              <span class="amt" style="font-size: 1.1rem;">₹10,000/-</span>
+            </div>
           </div>
         </div>
 
-        <div class="dues-amount-center">
-          <span class="dues-label-small">Total Pending Amount to Pay</span>
-          <div class="dues-big-amount" id="display-dues-amount">₹1,50,000</div>
-          <span class="text-secondary" style="font-size: 0.78rem;" id="display-dues-words">(One Lakh Fifty Thousand Rupees Only)</span>
-        </div>
+        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 14px;">
+          <span style="font-size: 0.85rem; color: var(--text-secondary);">
+            🏦 Settlement Bank: <strong>UCO Bank (A/C: 02360110051771, IFSC: UCBA0000236)</strong>
+          </span>
 
-        <div class="dues-actions-right">
-          <button class="btn btn-danger" onclick="window.openEditDuesModal()">
-            ✏️ Change / Set Amount
-          </button>
-          <button class="btn btn-white" onclick="window.copyText(document.getElementById('display-dues-amount').innerText, 'Pending Dues Amount')">
-            📋 Copy Amount
-          </button>
-          <button class="btn btn-white" onclick="window.copyBankSettlement()">
-            🏦 Copy Bank A/C
-          </button>
+          <div class="dues-actions-right">
+            <button class="btn btn-danger" onclick="window.openEditDuesModal()">
+              ✏️ Edit / Adjust Dues
+            </button>
+            <button class="btn btn-white" onclick="window.copyText('₹10,000 (Rs 5,000 for non-payment on time + Rs 5,000 for mental harassment & time waste)', 'Pending Dues Breakdown')">
+              📋 Copy Breakdown
+            </button>
+            <button class="btn btn-white" onclick="window.copyBankSettlement()">
+              🏦 Copy Bank A/C
+            </button>
+          </div>
         </div>
 
       </div>
@@ -564,13 +646,13 @@ ${printCss}
       <p class="text-secondary" style="font-size: 0.88rem;">Enter the exact amount of money that is pending for Manoj Arora:</p>
       
       <div>
-        <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; display: block;">Pending Amount (in ₹ INR)</label>
-        <input type="text" id="dues-amount-input" class="form-control-lg" placeholder="e.g. ₹1,50,000" />
+        <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; display: block;">Total Pending Amount (in ₹ INR)</label>
+        <input type="text" id="dues-amount-input" class="form-control-lg" placeholder="e.g. ₹10,000" />
       </div>
 
       <div>
         <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; display: block;">Note / Purpose (Optional)</label>
-        <input type="text" id="dues-note-input" class="form-control-lg" placeholder="e.g. Proposal Balance / Premium / Settlement" />
+        <input type="text" id="dues-note-input" class="form-control-lg" placeholder="e.g. ₹5,000 non-payment on time + ₹5,000 mental harassment & time waste" />
       </div>
 
       <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px;">
@@ -618,16 +700,16 @@ ${printCss}
   <script src="js/embedded_images.js"></script>
   <script>
     // Pending Dues State Management
-    const DUES_KEY = "MANOJ_PENDING_DUES_AMOUNT_V1";
-    const DUES_NOTE_KEY = "MANOJ_PENDING_DUES_NOTE_V1";
+    const DUES_KEY = "MANOJ_PENDING_DUES_AMOUNT_V2";
+    const DUES_NOTE_KEY = "MANOJ_PENDING_DUES_NOTE_V2";
 
     function loadDues() {
-      const savedAmount = localStorage.getItem(DUES_KEY) || "₹1,50,000";
-      const savedNote = localStorage.getItem(DUES_NOTE_KEY) || "Outstanding payment balance to be cleared for Manoj Arora. Bank settlement details attached below.";
+      const savedAmount = localStorage.getItem(DUES_KEY) || "₹10,000";
+      const savedNote = localStorage.getItem(DUES_NOTE_KEY) || "Total pending money of ₹10,000 (₹5,000 for delayed payment + ₹5,000 for mental harassment and time waste) to be paid by Manoj Arora.";
       
       document.getElementById('display-dues-amount').innerText = savedAmount;
       document.getElementById('header-dues-val').innerText = savedAmount;
-      document.getElementById('dues-desc-text').innerText = savedNote;
+      document.getElementById('dues-desc-text').innerHTML = \`Total pending money of <strong>\${savedAmount}</strong> to be paid by Manoj Arora immediately.\`;
     }
 
     window.openEditDuesModal = function() {
@@ -654,14 +736,14 @@ ${printCss}
       
       document.getElementById('display-dues-amount').innerText = val;
       document.getElementById('header-dues-val').innerText = val;
-      if (note) document.getElementById('dues-desc-text').innerText = note;
+      if (note) document.getElementById('dues-desc-text').innerHTML = \`Total pending money of <strong>\${val}</strong> to be paid by Manoj Arora immediately.\`;
 
       window.closeEditDuesModal();
       window.showToast("Pending dues amount updated: " + val);
     };
 
     window.copyBankSettlement = function() {
-      const bankDetails = "BANK SETTLEMENT DETAILS FOR MANOJ ARORA:\\nBank: UCO Bank\\nBranch: Sector 17 B, Bank Square, Chandigarh\\nA/C No: 02360110051771\\nIFSC Code: UCBA0000236\\nAccount Holder: MANOJ ARORA";
+      const bankDetails = "BANK SETTLEMENT DETAILS FOR MANOJ ARORA:\\nBank: UCO Bank\\nBranch: Sector 17 B, Bank Square, Chandigarh\\nA/C No: 02360110051771\\nIFSC Code: UCBA0000236\\nAccount Holder: MANOJ ARORA\\n\\nPending Amount to Pay: ₹10,000\\nBreakdown:\\n- ₹5,000 for delayed payment on time\\n- ₹5,000 for mental harassment and time waste";
       window.copyText(bankDetails, "Bank Account Details");
     };
 
@@ -705,7 +787,11 @@ ${printCss}
 
       const allText = \`MANOJ ARORA - PERSONAL PROFILE & PENDING DUES
 ===========================================
-PENDING PAYMENT TO PAY: \${dues}
+TOTAL PENDING MONEY MANOJ HAS TO PAY: \${dues}
+BREAKDOWN:
+1. ₹5,000 - For not payment of money on time
+2. ₹5,000 - For mental harassment and time waste
+Total Amount: ₹10,000/-
 -------------------------------------------
 Full Name: \${p.personal.fullName} (\${p.personal.hindiName})
 DOB: \${p.personal.dob} (Age: \${p.personal.age})
@@ -814,4 +900,4 @@ VERIFIED KYC & SETTLEMENT BANK:
 </html>`;
 
 fs.writeFileSync('index.html', html, 'utf8');
-console.log('Self-contained index.html with Pending Dues generated successfully');
+console.log('Self-contained index.html with Rs 10,000 Pending Dues breakdown generated successfully');
