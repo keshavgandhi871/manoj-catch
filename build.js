@@ -22,9 +22,21 @@ const html = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manoj Arora - Pending Dues & Penalty Record</title>
-  <meta name="description" content="Verified Personal Profile, KYC Documents (PAN, Aadhaar, Bank), Pending Payment Dues (Rs 10,000) for Manoj Arora." />
+  <title>Manoj Arora - Personalised Website For You</title>
+  <meta name="description" content="Personalised website for you • Verified Profile, KYC Documents & Details for Manoj Arora." />
   
+  <!-- Open Graph Meta Tags (For WhatsApp, Telegram, Facebook Link Previews) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Manoj Arora - Personalised Website For You" />
+  <meta property="og:description" content="Personalised website for you • Verified Profile, KYC Documents & Details for Manoj Arora." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/keshavgandhi871/manoj-catch/main/assets/manoj_arora_portrait_opt.jpg" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Manoj Arora - Personalised Website For You" />
+  <meta name="twitter:description" content="Personalised website for you • Verified Profile, KYC Documents & Details for Manoj Arora." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/keshavgandhi871/manoj-catch/main/assets/manoj_arora_portrait_opt.jpg" />
+
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -785,7 +797,7 @@ ${printCss}
         kyc: { panNumber: 'APVPA5577L', aadhaarNumber: '9183 9303 9252', bankName: 'UCO Bank', branch: 'Sector 17 B - Chandigarh', accountNumber: '02360110051771', ifscCode: 'UCBA0000236' }
       };
 
-      const allText = \`MANOJ ARORA - PERSONAL PROFILE & PENDING DUES
+      const allText = \`MANOJ ARORA - PERSONALISED WEBSITE FOR YOU
 ===========================================
 TOTAL PENDING MONEY MANOJ HAS TO PAY: \${dues}
 BREAKDOWN:
@@ -825,7 +837,7 @@ VERIFIED KYC & SETTLEMENT BANK:
 - Account No: \${p.kyc.accountNumber} | IFSC: \${p.kyc.ifscCode}
 ===========================================\`;
 
-      window.copyText(allText, "All Manoj Arora Details with Pending Dues");
+      window.copyText(allText, "All Manoj Arora Details");
     };
 
     // Viewer Logic
@@ -900,4 +912,4 @@ VERIFIED KYC & SETTLEMENT BANK:
 </html>`;
 
 fs.writeFileSync('index.html', html, 'utf8');
-console.log('Self-contained index.html with Rs 10,000 Pending Dues breakdown generated successfully');
+console.log('Self-contained index.html with Personalised Website for You metadata generated successfully');
