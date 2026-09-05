@@ -26,19 +26,26 @@ const html = `<!DOCTYPE html>
   <!-- Primary Meta Tags -->
   <title>Personalised website for you manoj</title>
   <meta name="title" content="Personalised website for you manoj" />
-  <meta name="description" content="Personalised website for you manoj • Official Profile & Verified Details" />
+  <meta name="description" content="Personalised website for you manoj" />
+  
+  <!-- Cache Control to prevent crawlers caching old titles -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   
   <!-- Open Graph / Facebook / WhatsApp / Telegram Meta Tags -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Personalised website for you manoj" />
   <meta property="og:title" content="Personalised website for you manoj" />
-  <meta property="og:description" content="Personalised website for you manoj • Official Profile & Verified Details" />
+  <meta property="og:description" content="Personalised website for you manoj" />
   <meta property="og:image" content="https://raw.githubusercontent.com/keshavgandhi871/manoj-catch/main/assets/manoj_arora_portrait_opt.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Personalised website for you manoj" />
-  <meta name="twitter:description" content="Personalised website for you manoj • Official Profile & Verified Details" />
+  <meta name="twitter:description" content="Personalised website for you manoj" />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/keshavgandhi871/manoj-catch/main/assets/manoj_arora_portrait_opt.jpg" />
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
